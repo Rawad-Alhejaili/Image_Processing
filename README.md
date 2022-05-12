@@ -3,7 +3,7 @@ This is kinda like an image processing toolbox.
 
 During my time with EE663: Image Processing. I found that I have implemented a couple of image processing operations in Python (like convolutions for example), and later I found that I frequenctly return to some of its functions. Therefore, I want to save them here in GitHub.
 
-The function that I return to the most is `imshow`. I am sure that I speak for everyone when I say that the defaults of `matplotlib.pyplot.imshow` leave a LOT to be desired. For example:
+The function that I return to the most is `imshow`. I am sure that I speak for everyone when I say that the defaults of `matplotlib.pyplot.imshow` leaves a LOT to be desired. For example:
 
 - The default DPI is so freaking LOW which causes the output image to have terrible quality.
 - The size of the image is so small that even a short title could be wider than the image. This is problematic when you have multiple subplots because their titles will overlap and cause a mess.
@@ -12,7 +12,7 @@ The function that I return to the most is `imshow`. I am sure that I speak for e
 - Using cmap='gray' will show the normailzed image.
 - Images are shown with useless axes.
 
-I could go on, but I guess you get the point now. Having to fix all of this every single time I use plt.imshow gets REALLY annoying after some time. As such, I decided to write what I would call a "convenience function", and it is `imshow` (will probably rename it to `LazyImshow`).
+I could go on, but I guess you get the point now. Having to fix all of this every single time I use `plt.imshow` gets REALLY annoying after some time. As such, I decided to write what I would call a "convenience function", and it is `imshow` (will probably rename it to `LazyImshow`).
 
 What this function does is very simple. It fixes all of the above issues swiftly for the most part.
 
@@ -29,6 +29,14 @@ Now you only to need to type:
 imshow(Im, 'title')
 ```
 
-And the function will take care of the rest.
+And the function will take care of the rest. Though, I do plan in the future to improve the function so that it give it a list of images and titles and it will arrange them according to my specific order. For example:
 
-Why the @$%! did I write all of this! Why would anyone read this XD
+```
+Images = [Im1, Im2, Im3, Im4]
+titles = ['1', '2', '3', '4']
+imshow(Image, title, grid=(2,2))
+```
+
+That would be really cool, because I will be able to change the size of the figure automatically depending on the grid size, and I believe that it should be fairly simple to do. However, I am not sure when will I implement those changes, but I will surely do them at one point of time.
+
+Now, why the @$%! did I write all of this! Why would anyone read this XD
