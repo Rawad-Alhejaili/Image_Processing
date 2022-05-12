@@ -1,4 +1,4 @@
-# Image_Processing
+# Image Processing
 This is kinda like an image processing toolbox.
 
 During my time with EE663: Image Processing. I found that I have implemented a couple of image processing operations in Python (like convolutions for example), and later I found that I frequenctly return to some of its functions. Therefore, I want to save them here in GitHub.
