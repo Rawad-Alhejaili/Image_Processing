@@ -39,4 +39,4 @@ imshow(Image, title, grid=(2,2))
 
 That would be really cool, because I will be able to change the size of the figure automatically depending on the grid size, and I believe that it should be fairly simple to do. However, I am not sure when will I implement those changes, but I will surely do them at one point of time.
 
-Now, why the @$%! did I write all of this! Why would anyone read this XD
+Now, why the @$%! did I write all of this! I am genuinely interested if anyone managed to make it this far XD
