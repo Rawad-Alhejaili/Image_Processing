@@ -29,7 +29,9 @@ Now you only to need to type:
 imshow(Im, 'title')
 ```
 
-And the function will take care of the rest. Though, I do plan in the future to improve the function so that it give it a list of images and titles and it will arrange them according to my specific order. For example:
+And the function will take care of the rest. It can take care of graysacle 2D or 3D images, RGB images, and it also works with tensors (though that's an experimental feature). It can do all that automatically, and it will also adjust the range of the image accordingly. 
+
+In the future, I plan to improve the function so that it give it a list of images and titles and it will arrange them according to my specific order. For example:
 
 ```
 Images = [Im1, Im2, Im3, Im4]
@@ -40,3 +42,6 @@ imshow(Image, title, grid=(2,2))
 That would be really cool, because I will be able to change the size of the figure automatically depending on the grid size, and I believe that it should be fairly simple to do. However, I am not sure when will I implement those changes, but I will surely do them at one point of time.
 
 Now, why the @$%! did I write all of this! I am genuinely interested if anyone managed to make it this far XD
+
+# Update 2022-06-09
+I have implemented the above in the function `imshow2.py`, but keep in mind that the support is still experimental, so there is not much automation here, at least not yet.
