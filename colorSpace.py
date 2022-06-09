@@ -74,7 +74,7 @@ def hsi2rgb(h, s, i, n):
     elif H < 6:
         (r1, g1, b1) = (c, 0, x)
     
-    #Notice that there's a pattern [x, c, c, x, 0, 0] in each column
+    #Notice that there's a pattern [0, x, c, c, x, 0] in each column
     #and that each column is shifted by 2 elements from the previous column.
     #I am not sure how useful this observation is, but it is cool nevertheless :)
     
