@@ -9,7 +9,7 @@ The function that I return to the most is `imshow`. I am sure that I speak for e
 - The size of the image is so small that even a short title could be wider than the image. This is problematic when you have multiple subplots because their titles will overlap and cause a mess.
 - Unless your image has a range from 0 to 1, you will have to convert the input image to uint8 so that `plt.imshow` "shows" the right range (by default, the range is from 0 to 1, but for uint8, it is from 0 to 255).
 - For God knows why, grayscale image are shown with pseudo-color.
-- Using cmap='gray' will show the normailzed image.
+- Using cmap='gray' will show the normailzed image. Sometimes, this is not desirable.
 - Images are shown with useless axes.
 
 I could go on, but I guess you get the point now. Having to fix all of this every single time I use `plt.imshow` gets REALLY annoying after some time. As such, I decided to write what I would call a "convenience function", and it is `imshow` (will probably rename it to `LazyImshow`).
