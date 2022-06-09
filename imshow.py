@@ -31,7 +31,7 @@ def imshow(Im, title='', newFigure=1):
     n = int(np.ceil(np.log2(1+np.amax(np.array(Im))
                             - np.amin(np.array(Im)))))  #Number of bits required to represent x
     # n = int(np.ceil(np.log2(np.amax(np.array(Im))+1)))  #Number of bits required to represent x
-    L = 2**n  #Number of intensity levels available in the image (in other words, it is our bandwidth).
+    L = 2**n  #Number of intensity levels available in the image (in other words, it is our bandwidth)
     minimum = np.amin(Im)
     
     #If the image has the channels in the first axis, then move it to the last
@@ -48,11 +48,11 @@ def imshow(Im, title='', newFigure=1):
         plt.figure(dpi=300, figsize=(5.5,5.5))
         plt.axis('off')
         plt.title(title)
-        if len(Im.shape) == 2: #If the image was grayscale,
-            if L == 256 and (minimum >= 0):
+        if len(Im.shape) == 2 or (len(Im.shape) == 3 and Im.shape[2] == 1): #If the image was grayscale,
+            if L == 256 and (minimum >= 0):  #No need for minimum condition. Normalization should account for it, though we should probably warn the user about negative values
                 plt.imshow(np.uint8(Im), 'gray', vmin=0, vmax=255)
             elif L==1 and (minimum >= 0):
-                plt.imshow(np.uint8(Im*255), 'gray', vmin=0, vmax=255)
+                plt.imshow(np.uint8(Im*255), 'gray', vmin=0, vmax=255)  #I could probably show this as float without relying on uint8
             else:
                 print("The image does NOT have a standard range... \nNormalizing...")
                 plt.imshow(normIm(Im, 0, 255), 'gray', vmin=0, vmax=255)
@@ -90,14 +90,14 @@ def imshow(Im, title='', newFigure=1):
     else:
         plt.axis('off')
         plt.title(title)
-        if len(Im.shape) == 2: #If the image was grayscale,
+        if len(Im.shape) == 2 or (len(Im.shape) == 3 and Im.shape[2] == 1): #If the image was grayscale,
             if L == 256 and (minimum >= 0):
                 plt.imshow(np.uint8(Im), 'gray', vmin=0, vmax=255)
             elif L==1 and (minimum >= 0):
                 plt.imshow(np.uint8(Im*255), 'gray', vmin=0, vmax=255)
             else:
                 plt.imshow(normIm(Im, 0, 255), 'gray', vmin=0, vmax=255)
-                print("Something isn't right with the image, so fix it!")
+                print("The image does NOT have a standard range... \nNormalizing...")
         elif len(Im.shape) == 3: #If the image was RGB,
             if L == 256 and (minimum >= 0):
                 plt.imshow(np.uint8(Im), vmin=0, vmax=255)
